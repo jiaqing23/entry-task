@@ -1,0 +1,19 @@
+//protoc --go_out=./ request.proto
+
+syntax = "proto3";
+package tutorial;
+option go_package = "proto.main"; 
+
+message Request {
+  string username = 1;
+  string nickname = 2;
+  string password = 3;
+
+  enum RequestType {
+    NONE = 0;
+    AUTH = 1;
+    EDIT_NICKNAME = 2;
+  }
+
+  RequestType requestType = 4; 
+}

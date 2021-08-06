@@ -1,12 +1,14 @@
 package main
 
 import (
+	"database/sql"
 	"fmt"
 	"log"
 	"net/http"
 	"strings"
 
 	"github.com/gin-gonic/gin"
+	_ "github.com/go-sql-driver/mysql"
 )
 
 var (
@@ -72,13 +74,48 @@ func postEdit(c *gin.Context) {
 }
 
 func main() {
-	router.LoadHTMLGlob("html/*")
-	router.Static("/image", "./image")
-	router.MaxMultipartMemory = 10 << 20 // 10MB
-	router.GET("/", getLogin)
-	router.POST("/login", postLogin)
-	router.GET("/profile", getProfile)
-	router.GET("/edit", getEdit)
-	router.POST("edit", postEdit)
-	log.Fatal(router.Run(":8080"))
+
+	db, err := sql.Open("mysql", "root:123456@tcp(127.0.0.1:3306)/entry_task")
+	if err != nil {
+		log.Fatal("Unable to connect with mysql")
+	}
+	defer db.Close()
+
+	insertUser, err := db.Prepare("INSERT INTO user VALUES(?, ?)")
+	if err != nil {
+		log.Fatal(err.Error())
+	}
+	defer insertUser.Close()
+	getUser, err := db.Prepare("SELECT * FROM user WHERE username=?")
+	if err != nil {
+		log.Fatal(err.Error())
+	}
+	defer getUser.Close()
+
+	username := "user1"
+	// password := "pass1"
+	// _, err = insertUser.Exec(username, password)
+	// if err != nil {
+	// 	log.Fatal(err.Error())
+	// }
+
+	var (
+		u string
+		p string
+	)
+	err = getUser.QueryRow(username).Scan(&u, &p)
+	if err != nil {
+		log.Fatal(err.Error())
+	}
+	log.Print(u, p)
+
+	// router.LoadHTMLGlob("html/*")
+	// router.Static("/image", "./image")
+	// router.MaxMultipartMemory = 10 << 20 // 10MB
+	// router.GET("/", getLogin)
+	// router.POST("/login", postLogin)
+	// router.GET("/profile", getProfile)
+	// router.GET("/edit", getEdit)
+	// router.POST("edit", postEdit)
+	// log.Fatal(router.Run(":8080"))
 }
