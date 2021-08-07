@@ -55,7 +55,6 @@ func main() {
 		os.Exit(1)
 	}
 	defer l.Close()
-
 	for {
 		c, err := l.Accept()
 		if err != nil {
@@ -65,6 +64,7 @@ func main() {
 		fmt.Println("Client " + c.RemoteAddr().String() + " connected.")
 		go handleConnection(c)
 	}
+
 }
 
 func handleConnection(conn net.Conn) {

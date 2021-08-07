@@ -12,7 +12,7 @@ import (
 	"time"
 
 	"github.com/dgrijalva/jwt-go"
-	"github.com/eternnoir/gncp"
+	"github.com/fatih/pool"
 	"github.com/gin-gonic/gin"
 	"github.com/twinj/uuid"
 	"google.golang.org/protobuf/proto"
@@ -29,7 +29,7 @@ const (
 var (
 	router      = gin.Default()
 	redisClient *redis.Client
-	tcpPool     *gncp.GncpPool
+	tcpPool     pool.Pool
 )
 
 type Login struct {
@@ -58,7 +58,9 @@ func init() {
 }
 
 func main() {
-	tcpPool, err := gncp.NewPool(500, 1000, connCreator)
+
+	var err error
+	tcpPool, err = pool.NewChannelPool(10, 15, connCreator)
 	if err != nil {
 		log.Fatal("Error connecting: ", err)
 	}
@@ -230,14 +232,11 @@ func postEdit(c *gin.Context) {
 }
 
 func sendTCP(req *Request) (*Request, error) {
-	log.Print("11111")
-
 	conn, err := tcpPool.Get()
 	if err != nil {
 		log.Print("Error get connection from pool: ", err)
 		return nil, err
 	}
-	log.Print("22222")
 	defer conn.Close()
 
 	out, err := proto.Marshal(req)
