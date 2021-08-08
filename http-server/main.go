@@ -8,12 +8,14 @@ import (
 	"net"
 	"net/http"
 	"os"
+	"path"
 	"strings"
 	"time"
 
 	"github.com/dgrijalva/jwt-go"
 	"github.com/fatih/pool"
 	"github.com/gin-gonic/gin"
+	"github.com/joho/godotenv"
 	"github.com/twinj/uuid"
 	"google.golang.org/protobuf/proto"
 
@@ -30,6 +32,7 @@ var (
 	router      = gin.Default()
 	redisClient *redis.Client
 	tcpPool     pool.Pool
+	ROOT        = os.Getenv("ENTRY_TASK_DEPLOY_PATH")
 )
 
 type Login struct {
@@ -58,6 +61,9 @@ func init() {
 }
 
 func main() {
+	if err := godotenv.Load(path.Join(os.Getenv("ENTRY_TASK_DEPLOY_PATH"), ".env")); err != nil {
+		log.Fatalf("Error loading .env file")
+	}
 
 	var err error
 	tcpPool, err = pool.NewChannelPool(10, 15, connCreator)
@@ -66,7 +72,7 @@ func main() {
 	}
 	defer tcpPool.Close()
 
-	router.LoadHTMLGlob("./html/*")
+	router.LoadHTMLGlob(path.Join(ROOT, "html/*"))
 	// router.Static("/image", "./image")
 	router.MaxMultipartMemory = 10 << 20 // 10MB
 	router.GET("/", getLogin)
@@ -84,7 +90,7 @@ func connCreator() (net.Conn, error) {
 }
 
 func showPic(c *gin.Context) {
-	file, err := os.Open("./image/" + c.Param("imageName") + ".png")
+	file, err := os.Open(path.Join(ROOT, "image", c.Param("imageName")+".png"))
 	if err != nil {
 		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
 		return
@@ -201,7 +207,7 @@ func postEdit(c *gin.Context) {
 	}
 
 	if image, err := c.FormFile("image"); err == nil {
-		if err2 := c.SaveUploadedFile(image, "image/"+user.Username+".png"); err2 != nil {
+		if err2 := c.SaveUploadedFile(image, path.Join(ROOT, "image", user.Username+".png")); err2 != nil {
 			c.String(http.StatusInternalServerError, err2.Error())
 			return
 		}
@@ -307,7 +313,6 @@ func CreateToken(user *User) (*TokenDetails, error) {
 	td.AccessUuid = uuid.NewV4().String()
 
 	var err error
-	os.Setenv("ACCESS_SECRET", "qwertyuiop") //this should be in an env file
 	atClaims := jwt.MapClaims{}
 	atClaims["access_uuid"] = td.AccessUuid
 	atClaims["username"] = user.Username
