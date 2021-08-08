@@ -67,7 +67,7 @@ func main() {
 	}
 
 	var err error
-	tcpPool, err = pool.NewChannelPool(10, 15, connCreator)
+	tcpPool, err = pool.NewChannelPool(200,200, connCreator)
 	if err != nil {
 		log.Fatal("Error connecting: ", err)
 	}
@@ -140,7 +140,6 @@ func postLogin(c *gin.Context) {
 		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
 		return
 	}
-
 	req := &Request{
 		Username:    loginInput.Username,
 		Password:    loginInput.Password,

@@ -1,8 +1,8 @@
 DROP DATABASE entry_task;
 
-USE entry_task;
-
 CREATE DATABASE entry_task DEFAULT CHARSET = utf8mb4 DEFAULT COLLATE = utf8mb4_unicode_ci;
+
+USE entry_task;
 
 CREATE TABLE user (
     username VARCHAR(100) PRIMARY KEY NOT NULL,
