@@ -1,0 +1,578 @@
+------------Memory & CPU Usage------------
+top - 03:31:47 up 5 days, 15:03,  2 users,  load average: 4.72, 6.23, 4.45
+Tasks:  26 total,   2 running,  24 sleeping,   0 stopped,   0 zombie
+%Cpu(s):  0.1 us,  0.1 sy,  0.0 ni, 99.8 id,  0.0 wa,  0.0 hi,  0.0 si,  0.0 st
+KiB Mem :  3514808 total,   852916 free,  1184472 used,  1477420 buff/cache
+KiB Swap:        0 total,        0 free,        0 used.  1725628 avail Mem 
+
+   PID USER      PR  NI    VIRT    RES    SHR S  %CPU %MEM     TIME+ COMMAND
+372591 root      20   0 1560320 327704   6772 S 162.5  9.3   5:37.50 tcp-server
+372620 root      20   0  979076  71892  11636 S  68.8  2.0   3:13.71 http-server
+    20 root      20   0   43840   7220   4596 R  50.0  0.2   3:34.05 systemd-journal
+  9449 mysql     20   0 2718816 457048  20560 S  50.0 13.0   9:26.43 mysqld
+255981 ld-jiaq+  20   0 3091244  19368   3292 D  37.5  0.6   0:00.06 wrk
+ 14457 ld-jiaq+  20   0  172656  97516   3716 S   6.2  2.8   2:54.20 redis-server
+     1 root      20   0   36968   5120   4112 S   0.0  0.1   0:07.35 systemd
+    25 root      20   0    9560   2572   2392 S   0.0  0.1   0:00.00 bash
+    29 root      20   0   65512   6208   5492 S   0.0  0.2   0:00.89 sshd
+    34 root      20   0   24368   1516   1180 S   0.0  0.0   0:00.00 socat
+  6382 root      20   0  610512  31600  11392 S   0.0  0.9   0:50.36 containerd
+  6393 root      20   0  607936 100612  50936 S   0.0  2.9   0:14.45 dockerd
+ 16197 root      20   0  125764   6604   5084 S   0.0  0.2   0:00.02 nginx
+ 17894 www-data  20   0  125764   5484   3740 S   0.0  0.2   0:02.83 nginx
+ 17895 www-data  20   0  125764   6496   4660 S   0.0  0.2   0:00.04 nginx
+ 17896 www-data  20   0  125764   5484   3740 S   0.0  0.2   0:02.83 nginx
+ 17897 www-data  20   0  125764   5484   3740 S   0.0  0.2   0:02.80 nginx
+ 34163 root      20   0   65512   6184   5428 S   0.0  0.2   0:00.00 sshd
+ 34165 ld-jiaq+  20   0   67256   5180   2836 S   0.0  0.1   0:00.68 sshd
+ 34166 ld-jiaq+  20   0   18404   3556   2912 S   0.0  0.1   0:00.10 bash
+ 34205 root      20   0   65512   6292   5536 S   0.0  0.2   0:00.00 sshd
+ 34207 ld-jiaq+  20   0   67180   5092   2736 S   0.0  0.1   0:01.39 sshd
+ 34208 ld-jiaq+  20   0   18500   3428   2720 S   0.0  0.1   0:00.13 bash
+255978 ld-jiaq+  20   0   23228   3740   2892 S   0.0  0.1   0:00.06 htop
+255982 ld-jiaq+  20   0   18500   2380   1656 S   0.0  0.1   0:00.00 bash
+255983 ld-jiaq+  20   0   38624   3188   2788 R   0.0  0.1   0:00.00 top
+
+------------Network Connection------------
+2313 fds (PID = 372620), command: /home/ld-jiaqing_tan/go_projects/src/github.com/jiaqing.tan/entry-task/deploy/http-server 
+2260 fds (PID = 372591), command: /home/ld-jiaqing_tan/go_projects/src/github.com/jiaqing.tan/entry-task/deploy/tcp-server 
+1203 fds (PID = 255981), command: wrk -t200 -c1000 -d10s -s login.lua --timeout 20 http://localhost:3000/ 
+269 fds (PID = 9449), command: /usr/sbin/mysqld 
+48 fds (PID = 14457), command: redis-server *:6379
+28 fds (PID = 1), command: init 
+23 fds (PID = 20), command: /lib/systemd/systemd-journald 
+20 fds (PID = 6393), command: /usr/bin/dockerd -H fd:// --containerd=/run/containerd/containerd.sock 
+15 fds (PID = 16197), command: nginx: master process /usr/sbin/nginx -g daemon on; master_process on;
+13 fds (PID = 17897), command: nginx: worker process                            
+
+--------------IO Utilization--------------
+Linux 4.15.0-42-shopee-generic (localhost) 	08/09/21 	_x86_64_	(4 CPU)
+
+03:31:47      UID       PID   kB_rd/s   kB_wr/s kB_ccwr/s iodelay  Command
+03:31:47        0         1     -1.00     -1.00     -1.00       3  init 
+03:31:47     1000     14457      0.00      1.46      0.00       0  redis-server *:6379
+03:31:47     1000     34166      0.00      0.26      0.00       0  -bash 
+03:31:47     1000     34208      0.01      0.01      0.00       0  -bash 
+03:31:47     1000    255978      0.00      0.00      0.00       0  htop 
+03:31:47     1000    255982      0.00      0.00      0.00       0  -bash 
+
+------------Memory & CPU Usage------------
+top - 03:31:49 up 5 days, 15:03,  2 users,  load average: 4.72, 6.23, 4.45
+Tasks:  27 total,   3 running,  24 sleeping,   0 stopped,   0 zombie
+%Cpu(s):  0.1 us,  0.1 sy,  0.0 ni, 99.8 id,  0.0 wa,  0.0 hi,  0.0 si,  0.0 st
+KiB Mem :  3514808 total,   808956 free,  1215464 used,  1490388 buff/cache
+KiB Swap:        0 total,        0 free,        0 used.  1688220 avail Mem 
+
+   PID USER      PR  NI    VIRT    RES    SHR S  %CPU %MEM     TIME+ COMMAND
+  9449 mysql     20   0 2718816 457184  20560 R  86.7 13.0   9:27.77 mysqld
+372591 root      20   0 1560320 328104   6772 S  86.7  9.3   5:40.31 tcp-server
+372620 root      20   0  979076  71020  11636 S  80.0  2.0   3:14.93 http-server
+258224 ld-jiaq+  20   0  172784  97260   2756 R  46.7  2.8   0:00.07 redis-server
+    20 root      20   0   43840   9860   7236 S  33.3  0.3   3:34.73 systemd-journal
+255981 ld-jiaq+  20   0 3981448  36792   3356 S  20.0  1.0   0:00.36 wrk
+ 14457 ld-jiaq+  20   0  172656  98192   3716 S  13.3  2.8   2:54.36 redis-server
+     1 root      20   0   36968   5120   4112 S   0.0  0.1   0:07.35 systemd
+    25 root      20   0    9560   2572   2392 S   0.0  0.1   0:00.00 bash
+    29 root      20   0   65512   6208   5492 S   0.0  0.2   0:00.89 sshd
+    34 root      20   0   24368   1516   1180 S   0.0  0.0   0:00.00 socat
+  6382 root      20   0  610512  31600  11392 S   0.0  0.9   0:50.36 containerd
+  6393 root      20   0  607936 100612  50936 S   0.0  2.9   0:14.45 dockerd
+ 16197 root      20   0  125764   6604   5084 S   0.0  0.2   0:00.02 nginx
+ 17894 www-data  20   0  125764   5484   3740 S   0.0  0.2   0:02.83 nginx
+ 17895 www-data  20   0  125764   6496   4660 S   0.0  0.2   0:00.04 nginx
+ 17896 www-data  20   0  125764   5484   3740 S   0.0  0.2   0:02.83 nginx
+ 17897 www-data  20   0  125764   5484   3740 S   0.0  0.2   0:02.80 nginx
+ 34163 root      20   0   65512   6184   5428 S   0.0  0.2   0:00.00 sshd
+ 34165 ld-jiaq+  20   0   67256   5180   2836 S   0.0  0.1   0:00.68 sshd
+ 34166 ld-jiaq+  20   0   18404   3556   2912 S   0.0  0.1   0:00.10 bash
+ 34205 root      20   0   65512   6292   5536 S   0.0  0.2   0:00.00 sshd
+ 34207 ld-jiaq+  20   0   67180   5092   2736 S   0.0  0.1   0:01.39 sshd
+ 34208 ld-jiaq+  20   0   18500   3428   2720 S   0.0  0.1   0:00.13 bash
+255978 ld-jiaq+  20   0   23360   3740   2892 S   0.0  0.1   0:00.07 htop
+255982 ld-jiaq+  20   0   18500   2380   1656 S   0.0  0.1   0:00.00 bash
+258216 ld-jiaq+  20   0   38624   3200   2800 R   0.0  0.1   0:00.00 top
+
+------------Network Connection------------
+2313 fds (PID = 372620), command: /home/ld-jiaqing_tan/go_projects/src/github.com/jiaqing.tan/entry-task/deploy/http-server 
+2145 fds (PID = 372591), command: /home/ld-jiaqing_tan/go_projects/src/github.com/jiaqing.tan/entry-task/deploy/tcp-server 
+1203 fds (PID = 255981), command: wrk -t200 -c1000 -d10s -s login.lua --timeout 20 http://localhost:3000/ 
+184 fds (PID = 9449), command: /usr/sbin/mysqld 
+50 fds (PID = 14457), command: redis-server *:6379
+49 fds (PID = 258224), command: redis-rdb-bgsave *:6379
+28 fds (PID = 1), command: init 
+23 fds (PID = 20), command: /lib/systemd/systemd-journald 
+20 fds (PID = 6393), command: /usr/bin/dockerd -H fd:// --containerd=/run/containerd/containerd.sock 
+15 fds (PID = 16197), command: nginx: master process /usr/sbin/nginx -g daemon on; master_process on;
+
+--------------IO Utilization--------------
+Linux 4.15.0-42-shopee-generic (localhost) 	08/09/21 	_x86_64_	(4 CPU)
+
+03:31:50      UID       PID   kB_rd/s   kB_wr/s kB_ccwr/s iodelay  Command
+03:31:50        0         1     -1.00     -1.00     -1.00       3  init 
+03:31:50     1000     14457      0.00      1.46      0.00       0  redis-server *:6379
+03:31:50     1000     34166      0.00      0.26      0.00       0  -bash 
+03:31:50     1000     34208      0.01      0.01      0.00       0  -bash 
+03:31:50     1000    255978      0.00      0.00      0.00       0  htop 
+03:31:50     1000    255982      0.00      0.00      0.00       0  -bash 
+03:31:50     1000    258224      0.00      0.04      0.00       0  redis-rdb-bgsave *:6379
+
+------------Memory & CPU Usage------------
+top - 03:31:51 up 5 days, 15:03,  2 users,  load average: 4.72, 6.23, 4.45
+Tasks:  26 total,   4 running,  22 sleeping,   0 stopped,   0 zombie
+%Cpu(s):  0.1 us,  0.1 sy,  0.0 ni, 99.8 id,  0.0 wa,  0.0 hi,  0.0 si,  0.0 st
+KiB Mem :  3514808 total,   797456 free,  1218504 used,  1498848 buff/cache
+KiB Swap:        0 total,        0 free,        0 used.  1675100 avail Mem 
+
+   PID USER      PR  NI    VIRT    RES    SHR S  %CPU %MEM     TIME+ COMMAND
+372591 root      20   0 1560320 331248   6772 S 180.0  9.4   5:43.54 tcp-server
+  9449 mysql     20   0 2719208 457320  20560 R  73.3 13.0   9:29.41 mysqld
+372620 root      20   0  979076  72072  11636 S  60.0  2.1   3:16.34 http-server
+    20 root      20   0   52032  12476   9852 R  26.7  0.4   3:35.48 systemd-journal
+255981 ld-jiaq+  20   0 3982472  37748   3428 S  13.3  1.1   0:00.69 wrk
+ 14457 ld-jiaq+  20   0  172656  98964   3716 R   6.7  2.8   2:54.59 redis-server
+255978 ld-jiaq+  20   0   23492   3740   2892 S   6.7  0.1   0:00.10 htop
+     1 root      20   0   36968   5120   4112 S   0.0  0.1   0:07.35 systemd
+    25 root      20   0    9560   2572   2392 S   0.0  0.1   0:00.00 bash
+    29 root      20   0   65512   6208   5492 S   0.0  0.2   0:00.89 sshd
+    34 root      20   0   24368   1516   1180 S   0.0  0.0   0:00.00 socat
+  6382 root      20   0  610512  31600  11392 S   0.0  0.9   0:50.36 containerd
+  6393 root      20   0  607936 100612  50936 S   0.0  2.9   0:14.45 dockerd
+ 16197 root      20   0  125764   6604   5084 S   0.0  0.2   0:00.02 nginx
+ 17894 www-data  20   0  125764   5484   3740 S   0.0  0.2   0:02.83 nginx
+ 17895 www-data  20   0  125764   6496   4660 S   0.0  0.2   0:00.04 nginx
+ 17896 www-data  20   0  125764   5484   3740 S   0.0  0.2   0:02.83 nginx
+ 17897 www-data  20   0  125764   5484   3740 S   0.0  0.2   0:02.80 nginx
+ 34163 root      20   0   65512   6184   5428 S   0.0  0.2   0:00.00 sshd
+ 34165 ld-jiaq+  20   0   67256   5180   2836 S   0.0  0.1   0:00.68 sshd
+ 34166 ld-jiaq+  20   0   18404   3556   2912 S   0.0  0.1   0:00.10 bash
+ 34205 root      20   0   65512   6292   5536 S   0.0  0.2   0:00.00 sshd
+ 34207 ld-jiaq+  20   0   67180   5092   2736 S   0.0  0.1   0:01.39 sshd
+ 34208 ld-jiaq+  20   0   18500   3428   2720 S   0.0  0.1   0:00.13 bash
+255982 ld-jiaq+  20   0   18500   2380   1656 S   0.0  0.1   0:00.00 bash
+260440 ld-jiaq+  20   0   38624   3076   2680 R   0.0  0.1   0:00.00 top
+
+------------Network Connection------------
+2313 fds (PID = 372620), command: /home/ld-jiaqing_tan/go_projects/src/github.com/jiaqing.tan/entry-task/deploy/http-server 
+2264 fds (PID = 372591), command: /home/ld-jiaqing_tan/go_projects/src/github.com/jiaqing.tan/entry-task/deploy/tcp-server 
+1203 fds (PID = 255981), command: wrk -t200 -c1000 -d10s -s login.lua --timeout 20 http://localhost:3000/ 
+247 fds (PID = 9449), command: /usr/sbin/mysqld 
+48 fds (PID = 14457), command: redis-server *:6379
+28 fds (PID = 1), command: init 
+24 fds (PID = 20), command: /lib/systemd/systemd-journald 
+20 fds (PID = 6393), command: /usr/bin/dockerd -H fd:// --containerd=/run/containerd/containerd.sock 
+15 fds (PID = 16197), command: nginx: master process /usr/sbin/nginx -g daemon on; master_process on;
+13 fds (PID = 17897), command: nginx: worker process                            
+
+--------------IO Utilization--------------
+Linux 4.15.0-42-shopee-generic (localhost) 	08/09/21 	_x86_64_	(4 CPU)
+
+03:31:52      UID       PID   kB_rd/s   kB_wr/s kB_ccwr/s iodelay  Command
+03:31:52        0         1     -1.00     -1.00     -1.00       3  init 
+03:31:52     1000     14457      0.00      1.53      0.00       0  redis-server *:6379
+03:31:52     1000     34166      0.00      0.26      0.00       0  -bash 
+03:31:52     1000     34208      0.01      0.01      0.00       0  -bash 
+03:31:52     1000    255978      0.00      0.00      0.00       0  htop 
+03:31:52     1000    255982      0.00      0.00      0.00       0  -bash 
+
+------------Memory & CPU Usage------------
+top - 03:31:53 up 5 days, 15:03,  2 users,  load average: 7.47, 6.77, 4.64
+Tasks:  26 total,   3 running,  23 sleeping,   0 stopped,   0 zombie
+%Cpu(s):  0.1 us,  0.1 sy,  0.0 ni, 99.8 id,  0.0 wa,  0.0 hi,  0.0 si,  0.0 st
+KiB Mem :  3514808 total,   791916 free,  1223024 used,  1499868 buff/cache
+KiB Swap:        0 total,        0 free,        0 used.  1670292 avail Mem 
+
+   PID USER      PR  NI    VIRT    RES    SHR S  %CPU %MEM     TIME+ COMMAND
+372591 root      20   0 1560320 333776   6772 S 173.3  9.5   5:46.04 tcp-server
+372620 root      20   0  979076  72072  11636 S  73.3  2.1   3:17.51 http-server
+  9449 mysql     20   0 2720972 457460  20560 R  66.7 13.0   9:30.65 mysqld
+    20 root      20   0   52032  16912  14288 S  33.3  0.5   3:36.07 systemd-journal
+ 14457 ld-jiaq+  20   0  172656  99488   3716 R  13.3  2.8   2:54.78 redis-server
+255981 ld-jiaq+  20   0 3985288  39548   3428 S  13.3  1.1   0:00.95 wrk
+     1 root      20   0   36968   5120   4112 S   0.0  0.1   0:07.35 systemd
+    25 root      20   0    9560   2572   2392 S   0.0  0.1   0:00.00 bash
+    29 root      20   0   65512   6208   5492 S   0.0  0.2   0:00.89 sshd
+    34 root      20   0   24368   1516   1180 S   0.0  0.0   0:00.00 socat
+  6382 root      20   0  610512  31600  11392 S   0.0  0.9   0:50.36 containerd
+  6393 root      20   0  607936 100612  50936 S   0.0  2.9   0:14.45 dockerd
+ 16197 root      20   0  125764   6604   5084 S   0.0  0.2   0:00.02 nginx
+ 17894 www-data  20   0  125764   5484   3740 S   0.0  0.2   0:02.83 nginx
+ 17895 www-data  20   0  125764   6496   4660 S   0.0  0.2   0:00.04 nginx
+ 17896 www-data  20   0  125764   5484   3740 S   0.0  0.2   0:02.83 nginx
+ 17897 www-data  20   0  125764   5484   3740 S   0.0  0.2   0:02.80 nginx
+ 34163 root      20   0   65512   6184   5428 S   0.0  0.2   0:00.00 sshd
+ 34165 ld-jiaq+  20   0   67256   5180   2836 S   0.0  0.1   0:00.68 sshd
+ 34166 ld-jiaq+  20   0   18404   3556   2912 S   0.0  0.1   0:00.10 bash
+ 34205 root      20   0   65512   6292   5536 S   0.0  0.2   0:00.00 sshd
+ 34207 ld-jiaq+  20   0   67180   5092   2736 S   0.0  0.1   0:01.39 sshd
+ 34208 ld-jiaq+  20   0   18500   3428   2720 S   0.0  0.1   0:00.13 bash
+255978 ld-jiaq+  20   0   23492   3740   2892 S   0.0  0.1   0:00.10 htop
+255982 ld-jiaq+  20   0   18500   2380   1656 S   0.0  0.1   0:00.00 bash
+262162 ld-jiaq+  20   0   38624   3080   2680 R   0.0  0.1   0:00.00 top
+
+------------Network Connection------------
+2313 fds (PID = 372620), command: /home/ld-jiaqing_tan/go_projects/src/github.com/jiaqing.tan/entry-task/deploy/http-server 
+2270 fds (PID = 372591), command: /home/ld-jiaqing_tan/go_projects/src/github.com/jiaqing.tan/entry-task/deploy/tcp-server 
+1203 fds (PID = 255981), command: wrk -t200 -c1000 -d10s -s login.lua --timeout 20 http://localhost:3000/ 
+233 fds (PID = 9449), command: /usr/sbin/mysqld 
+48 fds (PID = 14457), command: redis-server *:6379
+28 fds (PID = 1), command: init 
+23 fds (PID = 20), command: /lib/systemd/systemd-journald 
+20 fds (PID = 6393), command: /usr/bin/dockerd -H fd:// --containerd=/run/containerd/containerd.sock 
+15 fds (PID = 16197), command: nginx: master process /usr/sbin/nginx -g daemon on; master_process on;
+13 fds (PID = 17897), command: nginx: worker process                            
+
+--------------IO Utilization--------------
+Linux 4.15.0-42-shopee-generic (localhost) 	08/09/21 	_x86_64_	(4 CPU)
+
+03:31:53      UID       PID   kB_rd/s   kB_wr/s kB_ccwr/s iodelay  Command
+03:31:53        0         1     -1.00     -1.00     -1.00       3  init 
+03:31:53     1000     14457      0.00      1.53      0.00       0  redis-server *:6379
+03:31:53     1000     34166      0.00      0.26      0.00       0  -bash 
+03:31:53     1000     34208      0.01      0.01      0.00       0  -bash 
+03:31:53     1000    255978      0.00      0.00      0.00       0  htop 
+03:31:53     1000    255982      0.00      0.00      0.00       0  -bash 
+
+------------Memory & CPU Usage------------
+top - 03:31:54 up 5 days, 15:03,  2 users,  load average: 7.47, 6.77, 4.64
+Tasks:  26 total,   2 running,  24 sleeping,   0 stopped,   0 zombie
+%Cpu(s):  0.1 us,  0.1 sy,  0.0 ni, 99.8 id,  0.0 wa,  0.0 hi,  0.0 si,  0.0 st
+KiB Mem :  3514808 total,   792868 free,  1226608 used,  1495332 buff/cache
+KiB Swap:        0 total,        0 free,        0 used.  1666024 avail Mem 
+
+   PID USER      PR  NI    VIRT    RES    SHR S  %CPU %MEM     TIME+ COMMAND
+372591 root      20   0 1560320 335220   6772 S 131.2  9.5   5:48.21 tcp-server
+  9449 mysql     20   0 2719992 457292  20560 S  81.2 13.0   9:31.83 mysqld
+372620 root      20   0  979076  72072  11636 S  68.8  2.1   3:18.54 http-server
+    20 root      20   0   52032  19028  16404 R  37.5  0.5   3:36.65 systemd-journal
+ 14457 ld-jiaq+  20   0  172656  99908   3716 S  18.8  2.8   2:54.95 redis-server
+255981 ld-jiaq+  20   0 3987784  41644   3428 S  18.8  1.2   0:01.19 wrk
+     1 root      20   0   36968   5120   4112 S   0.0  0.1   0:07.35 systemd
+    25 root      20   0    9560   2572   2392 S   0.0  0.1   0:00.00 bash
+    29 root      20   0   65512   6208   5492 S   0.0  0.2   0:00.89 sshd
+    34 root      20   0   24368   1516   1180 S   0.0  0.0   0:00.00 socat
+  6382 root      20   0  610512  31600  11392 S   0.0  0.9   0:50.36 containerd
+  6393 root      20   0  607936 100612  50936 S   0.0  2.9   0:14.45 dockerd
+ 16197 root      20   0  125764   6604   5084 S   0.0  0.2   0:00.02 nginx
+ 17894 www-data  20   0  125764   5484   3740 S   0.0  0.2   0:02.83 nginx
+ 17895 www-data  20   0  125764   6496   4660 S   0.0  0.2   0:00.04 nginx
+ 17896 www-data  20   0  125764   5484   3740 S   0.0  0.2   0:02.83 nginx
+ 17897 www-data  20   0  125764   5484   3740 S   0.0  0.2   0:02.80 nginx
+ 34163 root      20   0   65512   6184   5428 S   0.0  0.2   0:00.00 sshd
+ 34165 ld-jiaq+  20   0   67256   5180   2836 S   0.0  0.1   0:00.68 sshd
+ 34166 ld-jiaq+  20   0   18404   3556   2912 S   0.0  0.1   0:00.10 bash
+ 34205 root      20   0   65512   6292   5536 S   0.0  0.2   0:00.00 sshd
+ 34207 ld-jiaq+  20   0   67180   5092   2736 S   0.0  0.1   0:01.39 sshd
+ 34208 ld-jiaq+  20   0   18500   3428   2720 S   0.0  0.1   0:00.13 bash
+255978 ld-jiaq+  20   0   23492   3740   2892 S   0.0  0.1   0:00.12 htop
+255982 ld-jiaq+  20   0   18500   2380   1656 S   0.0  0.1   0:00.00 bash
+263786 ld-jiaq+  20   0   38624   3116   2716 R   0.0  0.1   0:00.00 top
+
+------------Network Connection------------
+2313 fds (PID = 372620), command: /home/ld-jiaqing_tan/go_projects/src/github.com/jiaqing.tan/entry-task/deploy/http-server 
+2253 fds (PID = 372591), command: /home/ld-jiaqing_tan/go_projects/src/github.com/jiaqing.tan/entry-task/deploy/tcp-server 
+1203 fds (PID = 255981), command: wrk -t200 -c1000 -d10s -s login.lua --timeout 20 http://localhost:3000/ 
+226 fds (PID = 9449), command: /usr/sbin/mysqld 
+48 fds (PID = 14457), command: redis-server *:6379
+28 fds (PID = 1), command: init 
+23 fds (PID = 20), command: /lib/systemd/systemd-journald 
+20 fds (PID = 6393), command: /usr/bin/dockerd -H fd:// --containerd=/run/containerd/containerd.sock 
+15 fds (PID = 16197), command: nginx: master process /usr/sbin/nginx -g daemon on; master_process on;
+13 fds (PID = 17897), command: nginx: worker process                            
+
+--------------IO Utilization--------------
+Linux 4.15.0-42-shopee-generic (localhost) 	08/09/21 	_x86_64_	(4 CPU)
+
+03:31:55      UID       PID   kB_rd/s   kB_wr/s kB_ccwr/s iodelay  Command
+03:31:55        0         1     -1.00     -1.00     -1.00       3  init 
+03:31:55     1000     14457      0.00      1.53      0.00       0  redis-server *:6379
+03:31:55     1000     34166      0.00      0.26      0.00       0  -bash 
+03:31:55     1000     34208      0.01      0.01      0.00       0  -bash 
+03:31:55     1000    255978      0.00      0.00      0.00       0  htop 
+03:31:55     1000    255982      0.00      0.00      0.00       0  -bash 
+
+------------Memory & CPU Usage------------
+top - 03:31:56 up 5 days, 15:03,  2 users,  load average: 7.47, 6.77, 4.64
+Tasks:  26 total,   3 running,  23 sleeping,   0 stopped,   0 zombie
+%Cpu(s):  0.1 us,  0.1 sy,  0.0 ni, 99.8 id,  0.0 wa,  0.0 hi,  0.0 si,  0.0 st
+KiB Mem :  3514808 total,   786264 free,  1231388 used,  1497156 buff/cache
+KiB Swap:        0 total,        0 free,        0 used.  1660168 avail Mem 
+
+   PID USER      PR  NI    VIRT    RES    SHR S  %CPU %MEM     TIME+ COMMAND
+372591 root      20   0 1560320 336232   6772 S 180.0  9.6   5:50.63 tcp-server
+  9449 mysql     20   0 2718816 457148  20560 R  86.7 13.0   9:33.11 mysqld
+372620 root      20   0  979076  72072  11636 S  60.0  2.1   3:19.61 http-server
+    20 root      20   0   60224  24828  22204 R  33.3  0.7   3:37.25 systemd-journal
+255981 ld-jiaq+  20   0 3989704  43408   3428 S  20.0  1.2   0:01.46 wrk
+ 14457 ld-jiaq+  20   0  172656 100652   3716 S  13.3  2.9   2:55.13 redis-server
+     1 root      20   0   36968   5120   4112 S   0.0  0.1   0:07.35 systemd
+    25 root      20   0    9560   2572   2392 S   0.0  0.1   0:00.00 bash
+    29 root      20   0   65512   6208   5492 S   0.0  0.2   0:00.89 sshd
+    34 root      20   0   24368   1516   1180 S   0.0  0.0   0:00.00 socat
+  6382 root      20   0  610512  31600  11392 S   0.0  0.9   0:50.36 containerd
+  6393 root      20   0  607936 100612  50936 S   0.0  2.9   0:14.45 dockerd
+ 16197 root      20   0  125764   6604   5084 S   0.0  0.2   0:00.02 nginx
+ 17894 www-data  20   0  125764   5484   3740 S   0.0  0.2   0:02.83 nginx
+ 17895 www-data  20   0  125764   6496   4660 S   0.0  0.2   0:00.04 nginx
+ 17896 www-data  20   0  125764   5484   3740 S   0.0  0.2   0:02.83 nginx
+ 17897 www-data  20   0  125764   5484   3740 S   0.0  0.2   0:02.80 nginx
+ 34163 root      20   0   65512   6184   5428 S   0.0  0.2   0:00.00 sshd
+ 34165 ld-jiaq+  20   0   67256   5180   2836 S   0.0  0.1   0:00.68 sshd
+ 34166 ld-jiaq+  20   0   18404   3556   2912 S   0.0  0.1   0:00.10 bash
+ 34205 root      20   0   65512   6292   5536 S   0.0  0.2   0:00.00 sshd
+ 34207 ld-jiaq+  20   0   67180   5092   2736 S   0.0  0.1   0:01.39 sshd
+ 34208 ld-jiaq+  20   0   18500   3428   2720 S   0.0  0.1   0:00.13 bash
+255978 ld-jiaq+  20   0   23492   3740   2892 S   0.0  0.1   0:00.13 htop
+255982 ld-jiaq+  20   0   18500   2380   1656 S   0.0  0.1   0:00.00 bash
+265555 ld-jiaq+  20   0   38624   3124   2728 R   0.0  0.1   0:00.00 top
+
+------------Network Connection------------
+2313 fds (PID = 372620), command: /home/ld-jiaqing_tan/go_projects/src/github.com/jiaqing.tan/entry-task/deploy/http-server 
+2243 fds (PID = 372591), command: /home/ld-jiaqing_tan/go_projects/src/github.com/jiaqing.tan/entry-task/deploy/tcp-server 
+1203 fds (PID = 255981), command: wrk -t200 -c1000 -d10s -s login.lua --timeout 20 http://localhost:3000/ 
+203 fds (PID = 9449), command: /usr/sbin/mysqld 
+48 fds (PID = 14457), command: redis-server *:6379
+28 fds (PID = 1), command: init 
+23 fds (PID = 20), command: /lib/systemd/systemd-journald 
+20 fds (PID = 6393), command: /usr/bin/dockerd -H fd:// --containerd=/run/containerd/containerd.sock 
+15 fds (PID = 16197), command: nginx: master process /usr/sbin/nginx -g daemon on; master_process on;
+13 fds (PID = 17897), command: nginx: worker process                            
+
+--------------IO Utilization--------------
+Linux 4.15.0-42-shopee-generic (localhost) 	08/09/21 	_x86_64_	(4 CPU)
+
+03:31:56      UID       PID   kB_rd/s   kB_wr/s kB_ccwr/s iodelay  Command
+03:31:56        0         1     -1.00     -1.00     -1.00       3  init 
+03:31:56     1000     14457      0.00      1.53      0.00       0  redis-server *:6379
+03:31:56     1000     34166      0.00      0.26      0.00       0  -bash 
+03:31:56     1000     34208      0.01      0.01      0.00       0  -bash 
+03:31:56     1000    255978      0.00      0.00      0.00       0  htop 
+03:31:56     1000    255982      0.00      0.00      0.00       0  -bash 
+
+------------Memory & CPU Usage------------
+top - 03:31:57 up 5 days, 15:03,  2 users,  load average: 11.67, 7.66, 4.94
+Tasks:  25 total,   1 running,  24 sleeping,   0 stopped,   0 zombie
+%Cpu(s):  0.1 us,  0.1 sy,  0.0 ni, 99.8 id,  0.0 wa,  0.0 hi,  0.0 si,  0.0 st
+KiB Mem :  3514808 total,   843872 free,  1172932 used,  1498004 buff/cache
+KiB Swap:        0 total,        0 free,        0 used.  1716104 avail Mem 
+
+   PID USER      PR  NI    VIRT    RES    SHR S  %CPU %MEM     TIME+ COMMAND
+     1 root      20   0   36968   5120   4112 S   0.0  0.1   0:07.35 systemd
+    20 root      20   0   68416  28724  26100 S   0.0  0.8   3:37.75 systemd-journal
+    25 root      20   0    9560   2572   2392 S   0.0  0.1   0:00.00 bash
+    29 root      20   0   65512   6208   5492 S   0.0  0.2   0:00.89 sshd
+    34 root      20   0   24368   1516   1180 S   0.0  0.0   0:00.00 socat
+  6382 root      20   0  610512  31600  11392 S   0.0  0.9   0:50.36 containerd
+  6393 root      20   0  607936 100612  50936 S   0.0  2.9   0:14.45 dockerd
+  9449 mysql     20   0 2718816 457332  20560 S   0.0 13.0   9:34.16 mysqld
+ 14457 ld-jiaq+  20   0  172656 101116   3716 S   0.0  2.9   2:55.26 redis-server
+ 16197 root      20   0  125764   6604   5084 S   0.0  0.2   0:00.02 nginx
+ 17894 www-data  20   0  125764   5484   3740 S   0.0  0.2   0:02.83 nginx
+ 17895 www-data  20   0  125764   6496   4660 S   0.0  0.2   0:00.04 nginx
+ 17896 www-data  20   0  125764   5484   3740 S   0.0  0.2   0:02.83 nginx
+ 17897 www-data  20   0  125764   5484   3740 S   0.0  0.2   0:02.80 nginx
+ 34163 root      20   0   65512   6184   5428 S   0.0  0.2   0:00.00 sshd
+ 34165 ld-jiaq+  20   0   67256   5180   2836 S   0.0  0.1   0:00.68 sshd
+ 34166 ld-jiaq+  20   0   18404   3556   2912 S   0.0  0.1   0:00.10 bash
+ 34205 root      20   0   65512   6292   5536 S   0.0  0.2   0:00.00 sshd
+ 34207 ld-jiaq+  20   0   67180   5092   2736 S   0.0  0.1   0:01.39 sshd
+ 34208 ld-jiaq+  20   0   18500   3428   2720 S   0.0  0.1   0:00.13 bash
+255978 ld-jiaq+  20   0   23492   3740   2892 S   0.0  0.1   0:00.14 htop
+255982 ld-jiaq+  20   0   18500   2380   1656 S   0.0  0.1   0:00.00 bash
+267238 ld-jiaq+  20   0   38624   3080   2680 R   0.0  0.1   0:00.00 top
+372591 root      20   0 1560320 337084   6772 S   0.0  9.6   5:52.51 tcp-server
+372620 root      20   0  979076  72072  11636 S   0.0  2.1   3:20.50 http-server
+
+------------Network Connection------------
+2002 fds (PID = 372620), command: /home/ld-jiaqing_tan/go_projects/src/github.com/jiaqing.tan/entry-task/deploy/http-server 
+1990 fds (PID = 372591), command: /home/ld-jiaqing_tan/go_projects/src/github.com/jiaqing.tan/entry-task/deploy/tcp-server 
+71 fds (PID = 9449), command: /usr/sbin/mysqld 
+48 fds (PID = 14457), command: redis-server *:6379
+28 fds (PID = 1), command: init 
+23 fds (PID = 20), command: /lib/systemd/systemd-journald 
+20 fds (PID = 6393), command: /usr/bin/dockerd -H fd:// --containerd=/run/containerd/containerd.sock 
+15 fds (PID = 16197), command: nginx: master process /usr/sbin/nginx -g daemon on; master_process on;
+13 fds (PID = 17897), command: nginx: worker process                            
+13 fds (PID = 17896), command: nginx: worker process                            
+
+--------------IO Utilization--------------
+Linux 4.15.0-42-shopee-generic (localhost) 	08/09/21 	_x86_64_	(4 CPU)
+
+03:31:58      UID       PID   kB_rd/s   kB_wr/s kB_ccwr/s iodelay  Command
+03:31:58        0         1     -1.00     -1.00     -1.00       3  init 
+03:31:58     1000     14457      0.00      1.53      0.00       0  redis-server *:6379
+03:31:58     1000     34166      0.00      0.26      0.00       0  -bash 
+03:31:58     1000     34208      0.01      0.01      0.00       0  -bash 
+03:31:58     1000    255978      0.00      0.00      0.00       0  htop 
+03:31:58     1000    255982      0.00      0.00      0.00       0  -bash 
+
+------------Memory & CPU Usage------------
+top - 03:31:59 up 5 days, 15:03,  2 users,  load average: 11.67, 7.66, 4.94
+Tasks:  25 total,   2 running,  23 sleeping,   0 stopped,   0 zombie
+%Cpu(s):  0.1 us,  0.1 sy,  0.0 ni, 99.8 id,  0.0 wa,  0.0 hi,  0.0 si,  0.0 st
+KiB Mem :  3514808 total,   844740 free,  1172604 used,  1497464 buff/cache
+KiB Swap:        0 total,        0 free,        0 used.  1717504 avail Mem 
+
+   PID USER      PR  NI    VIRT    RES    SHR S  %CPU %MEM     TIME+ COMMAND
+372620 root      20   0  979076  72072  11636 S   6.7  2.1   3:20.55 http-server
+     1 root      20   0   36968   5120   4112 S   0.0  0.1   0:07.35 systemd
+    20 root      20   0   68416  32004  29380 R   0.0  0.9   3:37.86 systemd-journal
+    25 root      20   0    9560   2572   2392 S   0.0  0.1   0:00.00 bash
+    29 root      20   0   65512   6208   5492 S   0.0  0.2   0:00.89 sshd
+    34 root      20   0   24368   1516   1180 S   0.0  0.0   0:00.00 socat
+  6382 root      20   0  610512  31600  11392 S   0.0  0.9   0:50.37 containerd
+  6393 root      20   0  607936 100612  50936 S   0.0  2.9   0:14.45 dockerd
+  9449 mysql     20   0 2718816 457332  20560 S   0.0 13.0   9:34.24 mysqld
+ 14457 ld-jiaq+  20   0  172656 101116   3716 S   0.0  2.9   2:55.27 redis-server
+ 16197 root      20   0  125764   6604   5084 S   0.0  0.2   0:00.02 nginx
+ 17894 www-data  20   0  125764   5484   3740 S   0.0  0.2   0:02.83 nginx
+ 17895 www-data  20   0  125764   6496   4660 S   0.0  0.2   0:00.04 nginx
+ 17896 www-data  20   0  125764   5484   3740 S   0.0  0.2   0:02.83 nginx
+ 17897 www-data  20   0  125764   5484   3740 S   0.0  0.2   0:02.80 nginx
+ 34163 root      20   0   65512   6184   5428 S   0.0  0.2   0:00.00 sshd
+ 34165 ld-jiaq+  20   0   67256   5180   2836 S   0.0  0.1   0:00.68 sshd
+ 34166 ld-jiaq+  20   0   18404   3556   2912 S   0.0  0.1   0:00.10 bash
+ 34205 root      20   0   65512   6292   5536 S   0.0  0.2   0:00.00 sshd
+ 34207 ld-jiaq+  20   0   67180   5092   2736 S   0.0  0.1   0:01.39 sshd
+ 34208 ld-jiaq+  20   0   18500   3428   2720 S   0.0  0.1   0:00.13 bash
+255978 ld-jiaq+  20   0   23492   3740   2892 S   0.0  0.1   0:00.14 htop
+255982 ld-jiaq+  20   0   18500   2380   1656 S   0.0  0.1   0:00.00 bash
+267531 ld-jiaq+  20   0   38624   3148   2748 R   0.0  0.1   0:00.00 top
+372591 root      20   0 1560320 337084   6772 S   0.0  9.6   5:52.57 tcp-server
+
+------------Network Connection------------
+1862 fds (PID = 372620), command: /home/ld-jiaqing_tan/go_projects/src/github.com/jiaqing.tan/entry-task/deploy/http-server 
+1824 fds (PID = 372591), command: /home/ld-jiaqing_tan/go_projects/src/github.com/jiaqing.tan/entry-task/deploy/tcp-server 
+71 fds (PID = 9449), command: /usr/sbin/mysqld 
+48 fds (PID = 14457), command: redis-server *:6379
+28 fds (PID = 1), command: init 
+23 fds (PID = 20), command: /lib/systemd/systemd-journald 
+20 fds (PID = 6393), command: /usr/bin/dockerd -H fd:// --containerd=/run/containerd/containerd.sock 
+15 fds (PID = 16197), command: nginx: master process /usr/sbin/nginx -g daemon on; master_process on;
+13 fds (PID = 17897), command: nginx: worker process                            
+13 fds (PID = 17896), command: nginx: worker process                            
+
+--------------IO Utilization--------------
+Linux 4.15.0-42-shopee-generic (localhost) 	08/09/21 	_x86_64_	(4 CPU)
+
+03:31:59      UID       PID   kB_rd/s   kB_wr/s kB_ccwr/s iodelay  Command
+03:31:59        0         1     -1.00     -1.00     -1.00       3  init 
+03:31:59     1000     14457      0.00      1.53      0.00       0  redis-server *:6379
+03:31:59     1000     34166      0.00      0.26      0.00       0  -bash 
+03:31:59     1000     34208      0.01      0.01      0.00       0  -bash 
+03:31:59     1000    255978      0.00      0.00      0.00       0  htop 
+03:31:59     1000    255982      0.00      0.00      0.00       0  -bash 
+
+------------Memory & CPU Usage------------
+top - 03:32:00 up 5 days, 15:03,  2 users,  load average: 11.67, 7.66, 4.94
+Tasks:  25 total,   1 running,  24 sleeping,   0 stopped,   0 zombie
+%Cpu(s):  0.1 us,  0.1 sy,  0.0 ni, 99.8 id,  0.0 wa,  0.0 hi,  0.0 si,  0.0 st
+KiB Mem :  3514808 total,   843732 free,  1172956 used,  1498120 buff/cache
+KiB Swap:        0 total,        0 free,        0 used.  1717084 avail Mem 
+
+   PID USER      PR  NI    VIRT    RES    SHR S  %CPU %MEM     TIME+ COMMAND
+     1 root      20   0   36968   5120   4112 S   0.0  0.1   0:07.35 systemd
+    20 root      20   0   68416  33852  31228 S   0.0  1.0   3:37.97 systemd-journal
+    25 root      20   0    9560   2572   2392 S   0.0  0.1   0:00.00 bash
+    29 root      20   0   65512   6208   5492 S   0.0  0.2   0:00.89 sshd
+    34 root      20   0   24368   1516   1180 S   0.0  0.0   0:00.00 socat
+  6382 root      20   0  610512  31600  11392 S   0.0  0.9   0:50.37 containerd
+  6393 root      20   0  607936 100612  50936 S   0.0  2.9   0:14.45 dockerd
+  9449 mysql     20   0 2718816 457332  20560 S   0.0 13.0   9:34.24 mysqld
+ 14457 ld-jiaq+  20   0  172656 101116   3716 S   0.0  2.9   2:55.27 redis-server
+ 16197 root      20   0  125764   6604   5084 S   0.0  0.2   0:00.02 nginx
+ 17894 www-data  20   0  125764   5484   3740 S   0.0  0.2   0:02.83 nginx
+ 17895 www-data  20   0  125764   6496   4660 S   0.0  0.2   0:00.04 nginx
+ 17896 www-data  20   0  125764   5484   3740 S   0.0  0.2   0:02.83 nginx
+ 17897 www-data  20   0  125764   5484   3740 S   0.0  0.2   0:02.80 nginx
+ 34163 root      20   0   65512   6184   5428 S   0.0  0.2   0:00.00 sshd
+ 34165 ld-jiaq+  20   0   67256   5180   2836 S   0.0  0.1   0:00.68 sshd
+ 34166 ld-jiaq+  20   0   18404   3556   2912 S   0.0  0.1   0:00.10 bash
+ 34205 root      20   0   65512   6292   5536 S   0.0  0.2   0:00.00 sshd
+ 34207 ld-jiaq+  20   0   67180   5092   2736 S   0.0  0.1   0:01.39 sshd
+ 34208 ld-jiaq+  20   0   18500   3428   2720 S   0.0  0.1   0:00.13 bash
+255978 ld-jiaq+  20   0   23492   3740   2892 S   0.0  0.1   0:00.14 htop
+255982 ld-jiaq+  20   0   18500   2380   1656 S   0.0  0.1   0:00.01 bash
+267734 ld-jiaq+  20   0   38624   3080   2680 R   0.0  0.1   0:00.00 top
+372591 root      20   0 1560320 337084   6772 S   0.0  9.6   5:52.57 tcp-server
+372620 root      20   0  979076  72072  11636 S   0.0  2.1   3:20.55 http-server
+
+------------Network Connection------------
+1862 fds (PID = 372620), command: /home/ld-jiaqing_tan/go_projects/src/github.com/jiaqing.tan/entry-task/deploy/http-server 
+1824 fds (PID = 372591), command: /home/ld-jiaqing_tan/go_projects/src/github.com/jiaqing.tan/entry-task/deploy/tcp-server 
+71 fds (PID = 9449), command: /usr/sbin/mysqld 
+48 fds (PID = 14457), command: redis-server *:6379
+28 fds (PID = 1), command: init 
+23 fds (PID = 20), command: /lib/systemd/systemd-journald 
+20 fds (PID = 6393), command: /usr/bin/dockerd -H fd:// --containerd=/run/containerd/containerd.sock 
+15 fds (PID = 16197), command: nginx: master process /usr/sbin/nginx -g daemon on; master_process on;
+13 fds (PID = 17897), command: nginx: worker process                            
+13 fds (PID = 17896), command: nginx: worker process                            
+
+--------------IO Utilization--------------
+Linux 4.15.0-42-shopee-generic (localhost) 	08/09/21 	_x86_64_	(4 CPU)
+
+03:32:01      UID       PID   kB_rd/s   kB_wr/s kB_ccwr/s iodelay  Command
+03:32:01        0         1     -1.00     -1.00     -1.00       3  init 
+03:32:01     1000     14457      0.00      1.53      0.00       0  redis-server *:6379
+03:32:01     1000     34166      0.00      0.26      0.00       0  -bash 
+03:32:01     1000     34208      0.01      0.01      0.00       0  -bash 
+03:32:01     1000    255978      0.00      0.00      0.00       0  htop 
+03:32:01     1000    255982      0.00      0.00      0.00       0  -bash 
+
+------------Memory & CPU Usage------------
+top - 03:32:02 up 5 days, 15:03,  2 users,  load average: 10.74, 7.53, 4.91
+Tasks:  25 total,   1 running,  24 sleeping,   0 stopped,   0 zombie
+%Cpu(s):  0.1 us,  0.1 sy,  0.0 ni, 99.8 id,  0.0 wa,  0.0 hi,  0.0 si,  0.0 st
+KiB Mem :  3514808 total,   857148 free,  1172728 used,  1484932 buff/cache
+KiB Swap:        0 total,        0 free,        0 used.  1731132 avail Mem 
+
+   PID USER      PR  NI    VIRT    RES    SHR S  %CPU %MEM     TIME+ COMMAND
+     1 root      20   0   36968   5120   4112 S   0.0  0.1   0:07.35 systemd
+    20 root      20   0   43840   7220   4596 S   0.0  0.2   3:38.06 systemd-journal
+    25 root      20   0    9560   2572   2392 S   0.0  0.1   0:00.00 bash
+    29 root      20   0   65512   6208   5492 S   0.0  0.2   0:00.89 sshd
+    34 root      20   0   24368   1516   1180 S   0.0  0.0   0:00.00 socat
+  6382 root      20   0  610512  31600  11392 S   0.0  0.9   0:50.37 containerd
+  6393 root      20   0  607936 100612  50936 S   0.0  2.9   0:14.45 dockerd
+  9449 mysql     20   0 2718816 457332  20560 S   0.0 13.0   9:34.24 mysqld
+ 14457 ld-jiaq+  20   0  172656 101116   3716 S   0.0  2.9   2:55.27 redis-server
+ 16197 root      20   0  125764   6604   5084 S   0.0  0.2   0:00.02 nginx
+ 17894 www-data  20   0  125764   5484   3740 S   0.0  0.2   0:02.83 nginx
+ 17895 www-data  20   0  125764   6496   4660 S   0.0  0.2   0:00.04 nginx
+ 17896 www-data  20   0  125764   5484   3740 S   0.0  0.2   0:02.83 nginx
+ 17897 www-data  20   0  125764   5484   3740 S   0.0  0.2   0:02.80 nginx
+ 34163 root      20   0   65512   6184   5428 S   0.0  0.2   0:00.00 sshd
+ 34165 ld-jiaq+  20   0   67256   5180   2836 S   0.0  0.1   0:00.68 sshd
+ 34166 ld-jiaq+  20   0   18404   3556   2912 S   0.0  0.1   0:00.10 bash
+ 34205 root      20   0   65512   6292   5536 S   0.0  0.2   0:00.00 sshd
+ 34207 ld-jiaq+  20   0   67180   5092   2736 S   0.0  0.1   0:01.39 sshd
+ 34208 ld-jiaq+  20   0   18500   3428   2720 S   0.0  0.1   0:00.13 bash
+255978 ld-jiaq+  20   0   23492   3740   2892 S   0.0  0.1   0:00.15 htop
+255982 ld-jiaq+  20   0   18500   2380   1656 S   0.0  0.1   0:00.01 bash
+267937 ld-jiaq+  20   0   38624   3200   2800 R   0.0  0.1   0:00.00 top
+372591 root      20   0 1560320 337084   6772 S   0.0  9.6   5:52.57 tcp-server
+372620 root      20   0  979076  72072  11636 S   0.0  2.1   3:20.55 http-server
+
+------------Network Connection------------
+1862 fds (PID = 372620), command: /home/ld-jiaqing_tan/go_projects/src/github.com/jiaqing.tan/entry-task/deploy/http-server 
+1824 fds (PID = 372591), command: /home/ld-jiaqing_tan/go_projects/src/github.com/jiaqing.tan/entry-task/deploy/tcp-server 
+71 fds (PID = 9449), command: /usr/sbin/mysqld 
+48 fds (PID = 14457), command: redis-server *:6379
+28 fds (PID = 1), command: init 
+23 fds (PID = 20), command: /lib/systemd/systemd-journald 
+20 fds (PID = 6393), command: /usr/bin/dockerd -H fd:// --containerd=/run/containerd/containerd.sock 
+15 fds (PID = 16197), command: nginx: master process /usr/sbin/nginx -g daemon on; master_process on;
+13 fds (PID = 17897), command: nginx: worker process                            
+13 fds (PID = 17896), command: nginx: worker process                            
+
+--------------IO Utilization--------------
+Linux 4.15.0-42-shopee-generic (localhost) 	08/09/21 	_x86_64_	(4 CPU)
+
+03:32:02      UID       PID   kB_rd/s   kB_wr/s kB_ccwr/s iodelay  Command
+03:32:02        0         1     -1.00     -1.00     -1.00       3  init 
+03:32:02     1000     14457      0.00      1.53      0.00       0  redis-server *:6379
+03:32:02     1000     34166      0.00      0.26      0.00       0  -bash 
+03:32:02     1000     34208      0.01      0.01      0.00       0  -bash 
+03:32:02     1000    255978      0.00      0.00      0.00       0  htop 
+03:32:02     1000    255982      0.00      0.00      0.00       0  -bash 
+

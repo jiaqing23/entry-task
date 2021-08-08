@@ -33,6 +33,7 @@ var (
 	redisClient *redis.Client
 	tcpPool     pool.Pool
 	ROOT        = os.Getenv("ENTRY_TASK_DEPLOY_PATH")
+	DOMAIN = os.Getenv("DOMAIN")
 )
 
 type Login struct {
@@ -67,7 +68,7 @@ func main() {
 	}
 
 	var err error
-	tcpPool, err = pool.NewChannelPool(200, 200, connCreator)
+	tcpPool, err = pool.NewChannelPool(1000, 2000, connCreator)
 	if err != nil {
 		log.Fatal("Error connecting: ", err)
 	}
@@ -167,7 +168,7 @@ func postLogin(c *gin.Context) {
 		return
 	}
 
-	c.SetCookie("Authorization", token.AccessToken, 3600, "/", "localhost", false, true)
+	c.SetCookie("Authorization", token.AccessToken, 3600, "/", DOMAIN , false, true)
 	c.Redirect(http.StatusFound, "/profile")
 }
 
