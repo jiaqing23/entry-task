@@ -14,12 +14,12 @@ import (
 
 	"github.com/dgrijalva/jwt-go"
 	"github.com/fatih/pool"
+	"github.com/gin-contrib/pprof"
 	"github.com/gin-gonic/gin"
+	"github.com/go-redis/redis/v7"
 	"github.com/joho/godotenv"
 	"github.com/twinj/uuid"
 	"google.golang.org/protobuf/proto"
-
-	"github.com/go-redis/redis/v7"
 )
 
 const (
@@ -61,17 +61,19 @@ func init() {
 }
 
 func main() {
-	log.Print(path.Join(os.Getenv("ENTRY_TASK_DEPLOY_PATH"),".env"))
+	log.Print(path.Join(os.Getenv("ENTRY_TASK_DEPLOY_PATH"), ".env"))
 	if err := godotenv.Load(path.Join(os.Getenv("ENTRY_TASK_DEPLOY_PATH"), ".env")); err != nil {
 		log.Fatalf("Error loading .env file")
 	}
 
 	var err error
-	tcpPool, err = pool.NewChannelPool(200,200, connCreator)
+	tcpPool, err = pool.NewChannelPool(200, 200, connCreator)
 	if err != nil {
 		log.Fatal("Error connecting: ", err)
 	}
 	defer tcpPool.Close()
+
+	pprof.Register(router)
 
 	router.LoadHTMLGlob(path.Join(ROOT, "html/*"))
 	// router.Static("/image", "./image")
