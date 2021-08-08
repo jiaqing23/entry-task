@@ -1,0 +1,11 @@
+[Unit]
+Description=gotcp
+
+[Service]
+Type=simple
+Restart=always
+RestartSec=5s
+ExecStart=/home/ld-jiaqing_tan/go_projects/src/github.com/jiaqing.tan/entry-task/deploy/tcp-server
+
+[Install]
+WantedBy=multi-user.target

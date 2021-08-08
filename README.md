@@ -21,7 +21,7 @@
    *
    ```
    sudo mv scripts/10.143.139.181 /etc/nginx/sites-available/10.143.139.181
-   sudo ln -s /etc/nginx/sites-available/your_domain /etc/nginx/sites-enabled/your_domain
+   sudo ln -s /etc/nginx/sites-available/10.143.139.181 /etc/nginx/sites-enabled/10.143.139.181
    sudo nginx -s reload
    ```
 5. Populate data into MySQL.

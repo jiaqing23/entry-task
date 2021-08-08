@@ -1,0 +1,7 @@
+server {
+	server_name 10.143.139.181;
+
+    location / {
+        proxy_pass http://localhost:3000;
+    }
+}

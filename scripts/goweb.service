@@ -1,0 +1,12 @@
+[Unit]
+Description=goweb
+
+[Service]
+Type=simple
+Restart=always
+RestartSec=5s
+Environment=ENTRY_TASK_DEPLOY_PATH=/home/ld-jiaqing_tan/go_projects/src/github.com/jiaqing.tan/entry-task/deploy
+ExecStart=/home/ld-jiaqing_tan/go_projects/src/github.com/jiaqing.tan/entry-task/deploy/http-server
+
+[Install]
+WantedBy=multi-user.target
