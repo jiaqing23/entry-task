@@ -5,6 +5,7 @@ cp -r template deploy
 echo "Building server .go file..."
 go build -o ./deploy/tcp-server ./tcp-server/*.go 
 go build -o ./deploy/http-server ./http-server/*.go
+cp ./http-server/.env ./deploy
 
 echo "Starting Redis & MySQL Docker..."
 docker pull mysql:8.0.26
