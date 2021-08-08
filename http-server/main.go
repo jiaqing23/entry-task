@@ -61,6 +61,7 @@ func init() {
 }
 
 func main() {
+	log.Print(path.Join(os.Getenv("ENTRY_TASK_DEPLOY_PATH"),".env"))
 	if err := godotenv.Load(path.Join(os.Getenv("ENTRY_TASK_DEPLOY_PATH"), ".env")); err != nil {
 		log.Fatalf("Error loading .env file")
 	}
